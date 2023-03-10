@@ -13,9 +13,9 @@ use Psr\Log\AbstractLogger;
  */
 class DiagnosticLogger extends AbstractLogger
 {
-    private $logs = [];
+    private array $logs = [];
 
-    public function log($level, $message, array $context = [])
+    public function log($level, string|\Stringable $message, array $context = []): void
     {
         $this->logs[] = [$level, $message, $context];
     }

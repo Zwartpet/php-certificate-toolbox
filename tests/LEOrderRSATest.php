@@ -323,12 +323,9 @@ PRIVATE;
         $this->assertNotNull($order);
     }
 
-
-    /**
-     * @expectedException LogicException
-     */
     public function testCreateWithBadWildcard()
     {
+        $this->expectException(LogicException::class);
         $conn = $this->mockConnector();
         $log = new NullLogger();
         $dns = $this->mockDNS(true);
@@ -344,11 +341,9 @@ PRIVATE;
         $order->loadOrder($basename, $domains, $keyType, $notBefore, $notAfter);
     }
 
-    /**
-     * @expectedException LogicException
-     */
     public function testCreateWithBadKeyType()
     {
+        $this->expectException(LogicException::class);
         $conn = $this->mockConnector();
         $log = new NullLogger();
         $dns = $this->mockDNS(true);
@@ -364,11 +359,9 @@ PRIVATE;
         $order->loadOrder($basename, $domains, $keyType, $notBefore, $notAfter);
     }
 
-    /**
-     * @expectedException LogicException
-     */
     public function testCreateWithBadDates()
     {
+        $this->expectException(LogicException::class);
         $conn = $this->mockConnector();
         $log = new NullLogger();
         $dns = $this->mockDNS(true);
@@ -721,11 +714,9 @@ PRIVATE;
         $this->assertFalse($ok);
     }
 
-    /**
-     * @expectedException RuntimeException
-     */
     public function testRevokeFailure()
     {
+        $this->expectException(RuntimeException::class);
         $conn = $this->mockConnectorForProcessingCert(true);
 
         //we use an alternate URL for revocation which fails with a 403

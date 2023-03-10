@@ -337,7 +337,7 @@ class LEConnector
         ];
 
         $payload64 = LEFunctions::base64UrlSafeEncode(
-            str_replace('\\/', '/', is_array($payload) ? json_encode($payload) : $payload)
+            str_replace('\\/', '/', (is_array($payload) ? json_encode($payload) : $payload) ?: '')
         );
         $protected64 = LEFunctions::base64UrlSafeEncode(json_encode($protected));
 

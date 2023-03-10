@@ -40,8 +40,6 @@ class LEFunctions
 
         $result = ['public' => $details['key'], 'private' => $privateKey];
 
-        openssl_pkey_free($res);
-
         return $result;
     }
 
@@ -81,8 +79,6 @@ class LEFunctions
         $details = openssl_pkey_get_details($res);
 
         $result = ['public' => $details['key'], 'private' => $privateKey];
-
-        openssl_pkey_free($res);
 
         return $result;
     }

@@ -2,6 +2,7 @@
 
 namespace Zwartpet\PHPCertificateToolbox;
 
+use Prophecy\PhpUnit\ProphecyTrait;
 use Zwartpet\PHPCertificateToolbox\DNSValidator\DNSValidatorInterface;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
@@ -16,6 +17,8 @@ use Prophecy\Argument;
  */
 class LETestCase extends TestCase
 {
+    use ProphecyTrait;
+
     /**
      * Return DNS mock which will return success or failure for checkChallenge
      * @param $success
